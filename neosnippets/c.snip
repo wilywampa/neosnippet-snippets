@@ -165,3 +165,9 @@ abbr fopen("...", "...");
 snippet fgets
 abbr fgets(row, length, file);
     fgets(${0:ROW}, ${1:LENGTH}, ${2:FILE});
+
+snippet memcpy
+    memcpy(${0:dest}, ${1:src}, sizeof($0))
+
+snippet memset
+    memset(${0:dest}, ${1:value}, sizeof($0))
