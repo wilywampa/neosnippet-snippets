@@ -89,7 +89,7 @@ abbr        enum {}
 
 # hard-tab is necessary; C indent doesn't support this.
 snippet main
-	int main(int argc, char const* argv[])
+	int main(int argc, char **argv)
 	{
 		${0:TARGET}
 		return 0;
@@ -139,6 +139,10 @@ snippet fprintf
 abbr    fprintf(..., "...\n", ...);
     fprintf(${1:stderr}, "${2}\n"${3});
 
+snippet debug
+abbr    fprintf(..., "file:ln...\n", ...); /* JAKE DEBUG */
+    fprintf(${1:stderr}, "%s:%d ${2}\n", __FILE__, __LINE__${3}); /* JAKE DEBUG */
+
 snippet comment
 alias /*
     /* ${1:#:comment} */
@@ -158,16 +162,23 @@ snippet helloworld
 
 snippet fopen
 abbr fopen("...", "...");
-    fopen("${1:PATH}", "${2:MODE}");
-    ${0:TARGET}
-    fclose(${3:FD});
+    ${1:FD} = fopen("${2:PATH}", "${3:MODE}");
+    if ($1)
+    {
+        ${0:TARGET}
+    }
+    else
+    {
+        fprintf(stderr, "Error opening file: %s\n", "$2");
+    }
+    fclose($1);
 
 snippet fgets
 abbr fgets(row, length, file);
     fgets(${0:ROW}, ${1:LENGTH}, ${2:FILE});
 
 snippet memcpy
-    memcpy(${0:dest}, ${1:src}, sizeof($0))
+    memcpy(${0:dest}, ${1:src}, sizeof($0));
 
 snippet memset
-    memset(${0:dest}, ${1:value}, sizeof($0))
+    memset(${0:dest}, ${1:value}, sizeof($0));
