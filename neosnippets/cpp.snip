@@ -9,6 +9,11 @@ snippet inc2
 alias   #inc2, #include2
     #include "${1}"${0}
 
+snippet incfmt
+alias   #incfmt
+    #include <boost/format.hpp>
+    using boost::format;
+
 snippet     template
 abbr        template <T>
     template<typename ${1:T}>
@@ -105,3 +110,8 @@ abbr        #include<iostream> int main...
 snippet     p
 options     head
   std::cout << ${0:TARGET} << std::endl;
+
+snippet format
+alias   fmt
+abbr    format("...") % ...
+    format("${1}") % ${2}
