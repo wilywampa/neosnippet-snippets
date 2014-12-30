@@ -37,9 +37,9 @@ snippet     function
 abbr        func endfunc
 alias       func
 options     head
-    func! ${1:#:func_name}(${2})
+    func! ${1:#:func_name}(${2}) " {{{
       ${0:TARGET}
-    endfunc
+    endfunc " }}}
 
 snippet     try
 abbr        try endtry
@@ -78,9 +78,9 @@ options     head
 snippet     customlist
 abbr        customlist complete function
 options     head
-    func! ${1:#:func_name}(arglead, cmdline, cursorpos)
+    func! ${1:#:func_name}(arglead, cmdline, cursorpos) " {{{
       return filter(${2:#:list}, 'stridx(v:val, a:arglead) == 0')
-    endfunc
+    endfunc " }}}
 
 snippet     augroup
 abbr        augroup with autocmds
@@ -112,18 +112,18 @@ abbr NeoBundleLazy ''
 snippet bundle_hooks
 abbr neobundle hooks
     let s:hooks = neobundle#get_hooks('${1}')
-    func! s:hooks.on_source(bundle)
+    func! s:hooks.on_source(bundle) " {{{
       ${0}
-    endfunc
+    endfunc " }}}
     unlet s:hooks
 
 snippet     autoload
 abbr        autoload func endfunc
 alias       afunction afunc
 options     head
-    func! `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:func_name}(${2:#:args})
+    func! `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:func_name}(${2:#:args}) " {{{
       ${0}
-    endfunc
+    endfunc " }}}
 
 snippet  save_cpoptions
 abbr     let s:save_cpo = &cpo | set cpo&vim
