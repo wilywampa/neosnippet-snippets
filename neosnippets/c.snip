@@ -51,12 +51,12 @@ alias       do
 
 snippet     switch
 abbr        switch () {}
-    switch (${1:#:var})
-    {
-        case ${2:#:val}:
-            ${0:TARGET}
-            break;
-    }
+	switch (${1:#:var})
+	{
+		case ${2:#:val}:
+			${0:TARGET}
+			break;
+	}
 
 snippet     function
 alias       func
@@ -118,11 +118,11 @@ alias   #def, #define
 # Include-Guard
 snippet once
 abbr include-guard
-    #ifndef ${1:SYMBOL}
-        #define $1
+	#ifndef ${1:SYMBOL}
+		#define $1
 
-        ${0:TARGET}
-    #endif /* end of include guard */
+		${0:TARGET}
+	#endif /* end of include guard */
 
 # Ternary conditional operator
 snippet conditional
