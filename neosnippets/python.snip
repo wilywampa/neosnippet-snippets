@@ -131,3 +131,58 @@ abbr        setattr(..., ...)
 snippet     pdb
 abbr        import pdb..
     import pdb; pdb.set_trace()
+
+snippet     cl
+abbr        plt.close('all')
+options     head
+	plt.close('all')
+
+snippet     f
+abbr        plt.figure()
+options     head
+	plt.figure(${0})
+
+snippet     p
+abbr        plt.plot()
+options     head
+	plt.plot(${0})
+
+snippet     l
+abbr        plt.legend()
+options     head
+	plt.legend(${0})
+
+snippet     plt
+abbr        import pyplot
+options     head
+	import matplotlib.pyplot as plt
+
+snippet     mpl
+abbr        import matplotlib
+options     head
+	import matplotlib as mpl
+
+snippet     np
+abbr        import numpy
+options     head
+	import numpy as np
+
+snippet     sh
+abbr        plt.show()
+options     head
+	plt.show()
+
+snippet     xl
+abbr        plt.xlabel()
+options     head
+	plt.xlabel('${0}')
+
+snippet     yl
+abbr        plt.ylabel()
+options     head
+	plt.ylabel('${0}')
+
+snippet     t
+abbr        plt.title()
+options     head
+	plt.title('${0}')
