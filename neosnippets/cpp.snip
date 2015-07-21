@@ -42,9 +42,9 @@ snippet     try
 abbr        try catch
     try
     {
-        ${1:TARGET}
+        ${1:#:TARGET}
     }
-    catch (${2:e:xception})
+    catch (${2:...})
     {
         ${3}
     }
@@ -60,12 +60,12 @@ abbr        for (:) {}
 # lambda expression ( C++11 feature )
 snippet     lambda
 abbr        [](){}
-    [${1}](${2})${3}{ ${4:TARGET} }
+    [${1}](${2})${3}{ ${4:TARGET} }${0:;}
 
 # scoped enumeration ( C++11 feature )
 snippet     enum_scoped
-abbr        enum struct {}
-    enum struct { ${1:TARGET} }
+abbr        enum struct {};
+    enum struct ${1:#:name} { ${2:#:TARGET} };
 
 # static assert ( C++11 feature )
 snippet     static_assert
