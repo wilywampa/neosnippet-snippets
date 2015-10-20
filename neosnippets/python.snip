@@ -210,6 +210,8 @@ abbr        display
 
 snippet     px
 abbr        Client
-	rc = px.Client()
-	dv = rc[:]
+	rc = get_ipython().user_ns.get('rc', None)
+	if not hasattr(rc, 'direct_view'):
+	    rc = px.Client()
+	dv = rc.direct_view()
 	lv = rc.load_balanced_view()
