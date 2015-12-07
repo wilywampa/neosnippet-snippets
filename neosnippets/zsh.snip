@@ -8,3 +8,8 @@ snippet if
 snippet elif
 	elif [[ ${1:#:condition} ]]; then
 		${0:TARGET}
+
+snippet     zplug
+abbr zplug "plugin"
+        zplug "`getreg('+')=='' ? '<\`0\`>' : getreg('+')`"${0}
+
